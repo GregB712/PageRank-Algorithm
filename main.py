@@ -25,7 +25,8 @@ if __name__ == '__main__':
                         if i in list(G.successors(j)):
                                 L[j][i] = 1/G.out_degree(j)
 
-        ranking = PR.pageRanking(nodes, 0.001, L)
+        ranking1 = PR.pageRanking(nodes, 0.001, L)
+        ranking2 = PR.PR_DF(nodes, 0.01, L, 0.3)
         #print(L)
 
         #data = {'Node':['A', 'B', 'C', 'D'], 
