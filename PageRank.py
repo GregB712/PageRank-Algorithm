@@ -1,14 +1,24 @@
+# Importing needed libraries.
 import numpy as np
 import time
 
-# Normal Page Ranking Algorithm
 def pageRanking(number_of_nodes, acceptable_error, L):
+  """
+  Giving L the function will perform the basic Page Ranking algorithm returning the results as a list.
+
+  Parameters:
+  number_of_nodes (Int): The number of the graph's nodes.
+  acceptable_error (float): Threshold for converge in order to stop in a specific number of iterations.
+  L (numpy array): A matrix with the initialized scores that each node give to each other.
+
+  Returns:
+  r (List): The result list with the rankings for each node.
+  """
   start = time.time()
   r = np.full((1, number_of_nodes), 1/number_of_nodes)
-  r = np.squeeze(np.asarray(r))
+  r = np.squeeze(np.asarray(r)) # Flatten the matrix. From [[0]] to [0].
 
-  #acceptable_error = 0.01
-  number_of_iterations = 100 # Avoiding infinity loop
+  number_of_iterations = 100 # We use this variable as a safety valve for avoiding infinite loops.
   temp_boolean = True
 
   for i in range(number_of_iterations):
@@ -34,12 +44,24 @@ def pageRanking(number_of_nodes, acceptable_error, L):
 
 # Page ranking with dumping factor
 def PR_DF(number_of_nodes, acceptable_error, L, dumping):
+  """
+  Giving L the function will perform the Page Ranking algorithm using the dumping factor in the formula
+  returning the results as a list.
+
+  Parameters:
+  number_of_nodes (Int): The number of the graph's nodes.
+  acceptable_error (float): Threshold for converge in order to stop in a specific number of iterations.
+  L (numpy array): A matrix with the initialized scores that each node give to each other.
+  dumping (float): The dumping factor of the algorithm.
+
+  Returns:
+  r (List): The result list with the rankings for each node.
+  """
   start = time.time()
   r = np.full((1, number_of_nodes), 1/number_of_nodes)
-  r = np.squeeze(np.asarray(r))
+  r = np.squeeze(np.asarray(r)) # Flatten the matrix. From [[0]] to [0].
 
-  #acceptable_error = 0.01
-  number_of_iterations = 100 # Avoiding infinity loop
+  number_of_iterations = 100 # We use this variable as a safety valve for avoiding infinite loops.
   temp_boolean = True
 
   for i in range(number_of_iterations):

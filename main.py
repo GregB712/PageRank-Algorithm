@@ -1,32 +1,36 @@
+# Importing needed libraries.
 import numpy as np
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
+# Importing needed python scripts.
 import PageRank as PR
 import GraphCreation as GC
 
 if __name__ == '__main__':
         
         # The graph's data
-        nodes = 1000
+        number_of_nodes = 10
         p = 0.4
-        G = GC.ER(nodes, p)
+        G = GC.ER(number_of_nodes, p)
         pos = nx.spring_layout(G)
         nx.draw_networkx(G, pos)
         plt.title("Random Graph Generation Example")
         plt.show()
 
-        d = 0.3 # constant
+        d = 0.3 # dumping factor
+        error = 0.01 # acceptable error
 
-        L = np.zeros(shape=(nodes,nodes))
-        for j in range(nodes):
-                for i in range(nodes):
+        L = np.zeros(shape=(number_of_nodes,number_of_nodes))
+        for j in range(number_of_nodes):
+                for i in range(number_of_nodes):
                         if i in list(G.successors(j)):
                                 L[j][i] = 1/G.out_degree(j)
 
-        ranking1 = PR.pageRanking(nodes, 0.001, L)
-        ranking2 = PR.PR_DF(nodes, 0.01, L, 0.3)
+        ranking1 = PR.pageRanking(number_of_nodes, error*10, L)
+
+        ranking2 = PR.PR_DF(number_of_nodes, error, L, d)
         #print(L)
 
         #data = {'Node':['A', 'B', 'C', 'D'], 
