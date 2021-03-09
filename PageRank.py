@@ -36,8 +36,9 @@ def pageRanking(number_of_nodes, acceptable_error, L):
     
   end = time.time()
   duration = end - start
+  r = [np.format_float_scientific(i, unique=False, precision=15) for i in r] # Fixing the accuracy
   print("We needed: ",i, " iterations")
-  print("Rankings are: ", r)
+  print("Rankings are: ", [sorted(r).index(x) for x in r]) # Rankings (integer numbers)
   print("Duration: ",duration*1000, "ms")
 
   return r
@@ -76,8 +77,9 @@ def PR_DF(number_of_nodes, acceptable_error, L, dumping):
   end = time.time()
   duration = end - start
   temp = [q*100 for q in r]
+  temp = [np.format_float_scientific(i, unique=False, precision=15) for i in temp] # Fixing the accuracy
   print("We needed: ",i, " iterations")
-  print("Rankings are: ", temp)
+  print("Rankings are: ", [sorted(temp).index(x) for x in temp]) # Rankings (integer numbers)
   print("Duration: ",duration*1000, "ms")
 
   return r
