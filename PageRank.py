@@ -23,10 +23,6 @@ def pageRanking(number_of_nodes, acceptable_error, L):
 
   for i in range(number_of_iterations):
     if (temp_boolean == False): # Stop if there is converge
-      #print("We needed: ",i, " iterations")
-      #print(temp)
-      #print("Rankings are: ", r)
-      #print(temp-r)
       break
     temp = r
     r = np.dot(L,r) # Dot product between L and r

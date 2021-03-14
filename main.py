@@ -1,6 +1,5 @@
 # Importing needed libraries.
 import numpy as np
-import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -11,16 +10,18 @@ import GraphCreation as GC
 if __name__ == '__main__':
         
         # The graph's data
-        number_of_nodes = 10 # number of nodes
-        p = 0.4 # propability of edge existence
+        number_of_nodes = 100 # number of nodes
+        p = 0.4 # probability of edge existence
         G = GC.ER(number_of_nodes, p)
+
+        # Draw the graph
         pos = nx.spring_layout(G)
         nx.draw_networkx(G, pos)
         plt.title("Random Graph Generation")
         plt.show()
 
-        d = 0.3 # damping factor
-        error = 0.01 # acceptable error (for converge)
+        d = 0.85 # damping factor
+        error = 0.00001 # acceptable error (for converge)
 
         L = np.zeros(shape=(number_of_nodes,number_of_nodes))
         for j in range(number_of_nodes):
@@ -28,22 +29,6 @@ if __name__ == '__main__':
                         if i in list(G.successors(j)):
                                 L[j][i] = 1/G.out_degree(j)
 
-        ranking1 = PR.pageRanking(number_of_nodes, error*10, L)
+        ranking1 = PR.pageRanking(number_of_nodes, error, L)
 
         ranking2 = PR.PR_DF(number_of_nodes, error, L, d)
-        #print(L)
-
-        #data = {'Node':['A', 'B', 'C', 'D'], 
-        #        'Outgoing':[3, 2, 2, 1],
-        #        'Showing': [['B','C','D'], ['A','C'], ['B','D'], ['C']],
-        #        'Ranking':[1/number_of_nodes,1/number_of_nodes,1/number_of_nodes,1/number_of_nodes]
-        #        }
-
-        #graph_df = pd.DataFrame(data)
-
-        #ranking = PR.pageRanking(4, 0.01, L)
-
-        #print("---------------------------------------------------------------")
-
-        #graph_df['Ranking'] = ranking
-        #print(graph_df)

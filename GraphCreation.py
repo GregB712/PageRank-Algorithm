@@ -1,5 +1,4 @@
 # Importing needed libraries.
-import matplotlib.pyplot as plt
 import networkx as nx
 from itertools import combinations
 from random import random
