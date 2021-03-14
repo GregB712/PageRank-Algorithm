@@ -11,16 +11,16 @@ import GraphCreation as GC
 if __name__ == '__main__':
         
         # The graph's data
-        number_of_nodes = 10
-        p = 0.4
+        number_of_nodes = 10 # number of nodes
+        p = 0.4 # propability of edge existence
         G = GC.ER(number_of_nodes, p)
         pos = nx.spring_layout(G)
         nx.draw_networkx(G, pos)
-        plt.title("Random Graph Generation Example")
+        plt.title("Random Graph Generation")
         plt.show()
 
-        d = 0.3 # dumping factor
-        error = 0.01 # acceptable error
+        d = 0.3 # damping factor
+        error = 0.01 # acceptable error (for converge)
 
         L = np.zeros(shape=(number_of_nodes,number_of_nodes))
         for j in range(number_of_nodes):
