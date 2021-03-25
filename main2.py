@@ -84,6 +84,7 @@ def PR_DF(number_of_nodes, acceptable_error, L, dumping):
   return r, i, ranks, duration*1000
 
 def loop_logs(number_of_nodes):
+    p = np.log(number_of_nodes)/number_of_nodes
     G = GC.ER(number_of_nodes, p)
 
     L = np.zeros(shape=(number_of_nodes,number_of_nodes))
@@ -97,6 +98,7 @@ def loop_logs(number_of_nodes):
     return iterations,duration,number_of_nodes
 
 def loop_logs_D(number_of_nodes):
+    p = np.log(number_of_nodes)/number_of_nodes
     G = GC.ER(number_of_nodes, p)
 
     L = np.zeros(shape=(number_of_nodes,number_of_nodes))
@@ -131,7 +133,6 @@ def create_plots(my_array, my_string):
   plt.show()
 
 if __name__ == '__main__':
-    p = 1
     d = 0.85 # damping factor
     error = 0.0000001 # acceptable error
 

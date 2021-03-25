@@ -11,7 +11,7 @@ if __name__ == '__main__':
         
         # The graph's data
         number_of_nodes = 100 # number of nodes
-        p = 0.4 # probability of edge existence
+        p = np.log(number_of_nodes)/number_of_nodes # probability of edge existence
         G = GC.ER(number_of_nodes, p)
 
         # Draw the graph
