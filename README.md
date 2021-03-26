@@ -3,4 +3,29 @@
 ## PageRanking Algorithm
 
 #### Decription:
-PageRank is a ranking algorithm used to rank homepages in order of importance depending on the linkstructure of the Internet. This or some variation of is often used by search engines to decide which ofmany found pages should be showed first. Since there is a huge amount of homepages on the Internetthe ranking algorithm needs to be extremely fast, but it also needs to be very accurate since most peopledon’t look at more than a couple of results of a search query, regardless of if there was a large numberof hits or not.In this project we expect you to try and implement the method and try it on some sample graphs.Since the number of homepages is very large there is a large amount of ways you can speed up thecalculations depending on how you implement the method. It might be interesting to try some of thesemodifications of the algorithm and see how large of a difference they make when you try it on some large graphs.
+Today we live in the world of big data. Information for anything is just one click away. But the data are not always physically sorted. We mostly encounter them distributed in millions of sites. Also they are subject to constant changes and they are repeated. We cannot be sure about the quality of each source and moreover there is a vast heterogeneity among them, i.e. you can find them as html, pdf, mpg and so on. 
+To deal with those problems in the World Wide Web (WWW) we have created search engines that can take a query as an input and return the desired information. In order to succeed both query and not query ranking algorithms are being used. An example of a query independent algorithm is the PageRank.
+
+The concept of this project is to test some implementations of the PageRanking methods and try them on some sample graphs in a programming environment.
+More specifically in this project the simple and the damping factor algorithm are compared using the power method to speed up the results.
+
+In order to run the code below the following libraries are needed:
+- numpy
+- matplotlib
+- time
+- multiprocessing
+- scipy
+- networkx
+- itertools
+- random
+Also regarding the version python, 3.x (preferable 3.7.x +) is suggested.
+
+We are dealing with 4 distinct scripts:
+- main.py:
+Script for single graph creation and implementation of PageRank algorithms.
+- main2.py:
+Script that returns some plots about the comparisons of the two variations of the PageRank algorithm.
+- GraphCreation.py:
+We use the Erdős–Rényi model. Given a number of nodes and probability of vertex existence creates a random directed graph.
+- PageRank.py:
+The script with the two PageRank Algorithms
