@@ -7,11 +7,11 @@ def ER(number_of_nodes, p):
     """
     Base code from https://compucademy.net/generating-random-graphs-in-python/
     The algorithm uses the Erdős–Rényi model.
-    Given number of nodes and propability of vertex existence creates a random directed graph.
+    Given a number of nodes and probability of vertex existence creates a random directed graph.
 
     Parameters:
     number_of_nodes (Int): The number of the graph's nodes.
-    p (float): The existentially propability of each vertex between the nodes.
+    p (float): The existentially probability of each vertex between the nodes.
 
     Returns:
     g (DiGraph): A directed graph (Object of the DiGraph class).
